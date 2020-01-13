@@ -30,10 +30,9 @@ def won?(board)
     elsif
       (position_1 == "O" && position_2 == "O" && position_3 == "O")
       return wins
-    else false
     end
   end
-
+  return false
 end
 def full?(board)
   board.each do |full|
