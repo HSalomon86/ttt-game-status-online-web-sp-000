@@ -4,3 +4,57 @@ def position_taken?(board, index)
 end
 
 # Define your WIN_COMBINATIONS constant
+WIN_COMBINATIONS = [
+  [0,1,2], # Top row
+  [3,4,5], # Middle row
+  [6,7,8], # Bottom row
+  [0,3,6], # Left side
+  [1,4,7], # Center vertical
+  [2,5,8], # Right Side
+  [2,4,6], # Diagnol 1
+  [0,4,8] # Diagnol 2
+]
+def won?(board)
+  WIN_COMBINATIONS.each do |win|
+    win.each do |bin|
+      w_i_1 = bin[0]
+      w_i_2 = bin[1]
+      w_i_3 = bin[2]
+
+      position_1 = board[w_i_1]
+      position_2 = board[w_i_2]
+      position_3 = board[w_i_3]
+
+      if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+        return bin
+      else
+        return false
+    end
+  end
+  end
+end
+def full?(board)
+  board.each do |full|
+    if full != "X" || full != "O"
+      return false
+    else
+      return true
+    end
+  end
+end
+
+def draw?(board)
+  if won?(board) == false && full?(board) == true
+    return true
+  else
+    return false
+  end
+end
+
+def over?(board)
+  if won?(board) == true || full?(board) == true || draw?(board) == true
+    return true
+  else
+    return false
+  end
+end
