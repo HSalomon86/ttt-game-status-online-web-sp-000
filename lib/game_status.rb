@@ -35,13 +35,7 @@ def won?(board)
   return false
 end
 def full?(board)
-  board.all? do |full|
-    if full == "X" || full == "O"
-    return true
-  else
-    return false
-  end
-end
+  board.all? { |full| full == "X" || full == "O"}
 end
 
 def draw?(board)
