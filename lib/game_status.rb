@@ -15,25 +15,24 @@ WIN_COMBINATIONS = [
   [0,4,8] # Diagnol 2
 ]
 def won?(board)
-  WIN_COMBINATIONS.each do |win|
-    win.each do |bin|
-      w_i_1 = bin[0]
-      w_i_2 = bin[1]
-      w_i_3 = bin[2]
+  WIN_COMBINATIONS.each do |wins|
+    wins.each do |index|
 
-      position_1 = board[w_i_1]
-      position_2 = board[w_i_2]
-      position_3 = board[w_i_3]
+    win_index_1 = index[0]
+    win_index_2 = index[1]
+    win_index_3 = index[2]
 
-      if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
-        return bin
-      elsif full?(board) == false
-        return false
-      else
-        return false
+    position_1 = board[win_index_1]
+    position_2 = board[win_index_2]
+    position_3 =baord[win_index_3]
+
+    if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+      return wins
+    else
+      return false
     end
   end
-  end
+end
 end
 def full?(board)
   board.each do |full|
