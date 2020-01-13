@@ -32,7 +32,6 @@ def won?(board)
     end
   end
 end
-end
 def full?(board)
   board.each do |full|
     if full != "X" || full != "O"
